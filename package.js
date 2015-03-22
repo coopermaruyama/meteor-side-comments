@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'cooperm:sidecomments',
+  name: 'cooperm:side-comments',
   version: '0.0.1',
   // Brief, one-line summary of the package.
   summary: 'Add side comments to any page of your meteor app',
@@ -18,15 +18,19 @@ Package.onUse(function(api) {
   api.use([
     'templating',
     'underscore',
-    'jquery'
+    'jquery',
+    'accounts-base',
+    'reactive-var'
   ], 'client');
 
   // FILES FOR CLIENT ONLY
-  api.addFiles(
-    'sidecomments.html', 'client');
+  api.addFiles([
+    'sidecomments.html',
+    'client/compatibility/side-comments.js',
+    'client/compatibility/side-comments.css',
+    'client/compatibility/side-comments.theme.min.css'
+  ], 'client');
 
-  // EXPORTS
-  api.export('SideCommentsInit', 'client');
 
   // FILES FOR SERVER AND CLIENT
   api.addFiles([
@@ -41,17 +45,24 @@ Package.onUse(function(api) {
   ], both);
 
 
-
   // STATIC ASSETS FOR CLIENT
   api.addFiles([
     'public/default_avatar_64.png'
   ], 'client', { isAsset: true });
+
+  // EXPORTS
+  api.export([
+    'SideCommentsInit',
+    'require',
+    'SideComments',
+    'SideComment'
+  ], 'client');
 
 
 });
 
 Package.onTest(function(api) {
   api.use('tinytest');
-  api.use('cooperm:meteor-sidecomments');
+  // api.use('cooperm:meteor-sidecomments');
   api.addFiles('cooperm:meteor-sidecomments-tests.js');
 });
