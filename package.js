@@ -26,6 +26,7 @@ Package.onUse(function(api) {
   // FILES FOR CLIENT ONLY
   api.addFiles([
     'sidecomments.html',
+    'client/compatibility/md5.min.js',
     'client/compatibility/side-comments.js',
     'client/compatibility/side-comments.css',
     'client/compatibility/side-comments.theme.min.css'
@@ -44,11 +45,6 @@ Package.onUse(function(api) {
     'mongo'
   ], both);
 
-
-  // STATIC ASSETS FOR CLIENT
-  api.addFiles([
-    'public/default_avatar_64.png'
-  ], 'client', { isAsset: true });
 
   // EXPORTS
   api.export([

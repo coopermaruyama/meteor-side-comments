@@ -22,7 +22,7 @@ if Meteor.isClient
       name = null
       avatar = null
       user = Meteor.user()
-      avatar_default = if settings? then settings.defaultAvatar else "/packages/cooperm_side-comments/public/default_avatar_64.png"
+      avatar_default = settings.defaultAvatar if settings?.defaultAvatar
       name = user.username if user.username?
 
       if (_services = user.services)?
@@ -35,14 +35,13 @@ if Meteor.isClient
       if (_profile = user.profile)?
         name = _profile.name if _profile.name?
         avatar = _profile.avatar if _profile.avatar?
-
-      avatar ?= avatar_default
+      name ?= user.emails[0].address
+      avatar ?= "//www.gravatar.com/avatar/#{md5(user.emails[0].address)}.jpg"
       if name?
         commentUser =
           name: name
           avatarUrl: avatar
           id: user._id
-      name ?= "User #{user.id}"
     else
       commentUser =
         name: 'Login to comment'
