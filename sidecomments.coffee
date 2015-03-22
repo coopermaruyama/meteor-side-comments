@@ -42,6 +42,7 @@ if Meteor.isClient
           name: name
           avatarUrl: avatar
           id: user._id
+      name ?= "User #{user.id}"
     else
       commentUser =
         name: 'Login to comment'
