@@ -5,6 +5,13 @@ within minutes.
 
 ---
 
+### Install
+
+~~~
+meteor add cooperm:side-comments
+~~~
+
+
 ## Usage
 To use, wrap the content you want to make commentable with
 `<div id="commentable-area">`. Then, include our (blank) template which
