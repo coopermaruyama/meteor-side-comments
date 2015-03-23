@@ -3,7 +3,7 @@
 Easily add side-comments.js to any page on your site. Get it up and running
 within minutes.
 
-demo: http://sidecomments-demo.meteor.com/
+demo: http://sidecomments-demo.meteor.com/  
 demo repo: https://github.com/coopermaruyama/meteor-sidecomments-demo
 
 ---
