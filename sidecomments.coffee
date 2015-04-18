@@ -29,7 +29,7 @@ if Meteor.isClient
         if (_google = _services.google)?
           name = _google.name if _google.name?
           avatar = _google.picture if _google.picture?
-        if (_fb = services.facebook)?
+        if (_fb = _services.facebook)?
           name = _fb.name if _fb.name?
           avatar = "//graph.facebook.com/#{fb.id}/picture" if _fb.id?
       if (_profile = user.profile)?
@@ -83,11 +83,11 @@ if Meteor.isClient
                 tpl.existingComments.get().push
                   sectionId: comment.sectionId.toString()
                   comments: [comment.comment]
-            #     
+            #
             # add side comments
             unless tpl.side_comments?
               tpl.side_comments = new SideComments '#commentable-area', commentUser, tpl.existingComments.get()
-            
+
 
               # side comment events
               tpl.side_comments.on 'commentPosted', (comment) ->
