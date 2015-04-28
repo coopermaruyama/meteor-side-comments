@@ -32,6 +32,9 @@ if Meteor.isClient
         if (_fb = _services.facebook)?
           name = _fb.name if _fb.name?
           avatar = "//graph.facebook.com/#{fb.id}/picture" if _fb.id?
+        if (_twitter = _services.twitter)?
+          name = _twitter.screenName if _twitter.screenName?
+          avatar = _twitter.profile_image_url if _twitter.profile_image_url?
       if (_profile = user.profile)?
         name = _profile.name if _profile.name?
         avatar = _profile.avatar if _profile.avatar?
