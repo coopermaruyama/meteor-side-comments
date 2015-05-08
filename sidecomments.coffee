@@ -70,7 +70,8 @@ if Meteor.isClient
           the_path = window.location.pathname
 
           # decorate areas
-          ($ '#commentable-area p').each (i,v) ->
+          sectionSelector = if settings?.customSelector? then settings.customSelector else "p"
+          ($ "#commentable-area #{sectionSelector}").each (i,v) ->
             unless $(this).parents('.commentable-section').length > 0
               ($ this).addClass("commentable-section").attr "data-section-id", i
 

@@ -29,12 +29,27 @@ initializes side commments:
 </template>
 ~~~
 
+By default all <p> elements are matched (unless it has a parent with a side comment already).You can overide the default selector in settings.json:
+
+~~~json
+{
+  "public": {
+    "sideComments": {
+       "customSelector": "p, .custom, span.wrapMeToo"
+    }
+  }
+}
+~~~
+
+
+
 Optionally define a default avatar in settings.json:
 
 ~~~json
 {
   "public": {
     "sideComments": {
+       "customSelector": "p, .custom, span.wrapMeToo",
        "defaultAvatar": "/path/to/avatar.png"
     }
   }
@@ -46,7 +61,7 @@ Optionally define a default avatar in settings.json:
 ## How it works
 
 Meteor side comments works by looking for any `<div>` tag with id `commentable-area`.
-It then looks through its children for `<p>` tags and uses them as sections to
+It then looks through its children for `<p>` tags (or whatever custom selector you defined) and uses them as sections to
 turn into commentable sections.
 
 The `{{> SideCommentsInit}}` include is just a blank template, but initializes
