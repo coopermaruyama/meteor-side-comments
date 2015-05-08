@@ -1,6 +1,6 @@
 Package.describe({
   name: 'cooperm:side-comments',
-  version: '0.0.4',
+  version: '0.1.0',
   // Brief, one-line summary of the package.
   summary: 'Add side comments to any page of your meteor app',
   // URL to the Git repository containing the source code for this package.
