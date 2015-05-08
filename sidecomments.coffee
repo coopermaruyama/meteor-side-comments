@@ -60,7 +60,10 @@ if Meteor.isClient
     # render
     # -------
     Template.SideCommentsInit.rendered = ->
-      tpl = @view.parentView.templateInstance()
+      parentView = @view.parentView
+      while typeof parentView.templateInstance is "undefined"
+        parentView = parentView.parentView
+      tpl = parentView.templateInstance()
       `SideComments = require('side-comments');`
       $ ->
         if $('#commentable-area')?
