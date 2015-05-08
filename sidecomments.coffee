@@ -118,7 +118,7 @@ if Meteor.isClient
                     comment: 'Please login to post comments'
               tpl.side_comments.on 'commentDeleted', (comment) ->
                 if Meteor.user()
-                  SideComment.destroyAll comment.id
+                  SideComment.remove comment.id
                   tpl.side_comments.removeComment comment.sectionId, comment.id
             #/endunless
 

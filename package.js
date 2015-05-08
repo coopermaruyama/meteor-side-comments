@@ -52,7 +52,7 @@ Package.onUse(function(api) {
     'require',
     'SideComments',
     'SideComment'
-  ], 'client');
+  ], ['client', 'web.browser']);
 
 
 });
