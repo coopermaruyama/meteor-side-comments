@@ -29,7 +29,7 @@ initializes side commments:
 </template>
 ~~~
 
-By default all <p> elements are matched (unless it has a parent with a side comment already).You can overide the default selector in settings.json:
+By default all `<p>` elements are matched (unless it has a parent with a side comment already).You can overide the default selector in settings.json:
 
 ~~~json
 {
