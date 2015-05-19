@@ -42,8 +42,9 @@ By default all `<p>` elements are matched (unless it has a parent with a side co
 ~~~
 
 
-
-Optionally define a default avatar in settings.json:
+By default, Sidecomments will use a Gravatar, which uses the user's email to 
+look up their avatar. This is recommended as it usually will find an avatar for
+the user. You can optionally define a default avatar in settings.json:
 
 ~~~json
 {
